@@ -15,9 +15,22 @@ const Hero = () => {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+      </div>
+
+      {/* Vertical Camel Animations */}
+      <div className="absolute left-5 top-0 h-full pointer-events-none">
+        <div className="animate-camel-vertical-down">
+          <div className="text-4xl animate-camel-legs">🐪</div>
+        </div>
+      </div>
+      
+      <div className="absolute right-5 top-0 h-full pointer-events-none">
+        <div className="animate-camel-vertical-up" style={{ animationDelay: '8s' }}>
+          <div className="text-4xl animate-camel-legs">🐪</div>
+        </div>
       </div>
 
       {/* Background Image Overlay */}
@@ -46,7 +59,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400"
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400"
             >
               <Phone className="w-5 h-5 mr-2" />
               Call Now
@@ -67,15 +80,15 @@ const Hero = () => {
           
           <div className="flex flex-wrap justify-center gap-6 text-sm md:text-base text-muted-foreground">
             <div className="flex items-center space-x-2 hover:text-primary transition-colors">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
               <span>Verified Properties</span>
             </div>
             <div className="flex items-center space-x-2 hover:text-primary transition-colors">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
               <span>Trusted Agents</span>
             </div>
             <div className="flex items-center space-x-2 hover:text-primary transition-colors">
-              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
               <span>Best Prices</span>
             </div>
           </div>

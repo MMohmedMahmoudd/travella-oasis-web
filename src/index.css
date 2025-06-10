@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 32 95% 44%;
+    --primary: 250 75% 60%;
     --primary-foreground: 355.7 100% 97.3%;
 
     --secondary: 210 40% 96.1%;
@@ -46,13 +46,13 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom colors for modern design */
+    /* Custom colors for modern design - Blue/Purple theme */
     --success: 142 76% 36%;
     --success-foreground: 355.7 100% 97.3%;
-    --gradient-from: 32 95% 44%;
-    --gradient-to: 45 93% 47%;
-    --desert-sand: 39 77% 83%;
-    --sunset-orange: 25 85% 65%;
+    --gradient-from: 250 75% 60%;
+    --gradient-to: 280 80% 70%;
+    --desert-blue: 220 70% 85%;
+    --mystic-purple: 270 65% 75%;
   }
 
   .dark {
@@ -65,7 +65,7 @@
     --popover: 224 71% 4%;
     --popover-foreground: 213 31% 91%;
 
-    --primary: 32 95% 44%;
+    --primary: 250 75% 60%;
     --primary-foreground: 355.7 100% 97.3%;
 
     --secondary: 215 27.9% 16.9%;
@@ -93,13 +93,13 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Dark mode custom colors */
+    /* Dark mode custom colors - Blue/Purple theme */
     --success: 142 76% 36%;
     --success-foreground: 355.7 100% 97.3%;
-    --gradient-from: 32 95% 44%;
-    --gradient-to: 45 93% 47%;
-    --desert-sand: 39 77% 83%;
-    --sunset-orange: 25 85% 65%;
+    --gradient-from: 250 75% 60%;
+    --gradient-to: 280 80% 70%;
+    --desert-blue: 220 70% 85%;
+    --mystic-purple: 270 65% 75%;
   }
 }
 
@@ -142,6 +142,18 @@
     animation: camelWalk 20s linear infinite;
   }
 
+  .animate-camel-vertical-down {
+    animation: camelVerticalDown 15s linear infinite;
+  }
+
+  .animate-camel-vertical-up {
+    animation: camelVerticalUp 18s linear infinite;
+  }
+
+  .animate-camel-legs {
+    animation: camelLegs 1s ease-in-out infinite;
+  }
+
   .animate-sand-drift {
     animation: sandDrift 15s ease-in-out infinite;
   }
@@ -165,17 +177,17 @@
 
   .desert-bg {
     background: linear-gradient(135deg, 
-      hsl(var(--desert-sand)) 0%, 
-      hsl(var(--sunset-orange)) 50%, 
+      hsl(var(--desert-blue)) 0%, 
+      hsl(var(--mystic-purple)) 50%, 
       hsl(var(--primary)) 100%);
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent;
   }
 
   .section-bg-light {
-    @apply bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50;
+    @apply bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50;
   }
 
   .section-bg-dark {
@@ -244,6 +256,39 @@
   }
   100% {
     transform: translateX(-100px) scaleX(1);
+  }
+}
+
+@keyframes camelVerticalDown {
+  0% {
+    transform: translateY(-100px) rotate(90deg);
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) rotate(90deg);
+  }
+}
+
+@keyframes camelVerticalUp {
+  0% {
+    transform: translateY(calc(100vh + 100px)) rotate(-90deg);
+  }
+  100% {
+    transform: translateY(-100px) rotate(-90deg);
+  }
+}
+
+@keyframes camelLegs {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  25% {
+    transform: scaleY(1.1) translateY(-2px);
+  }
+  50% {
+    transform: scaleY(0.9) translateY(1px);
+  }
+  75% {
+    transform: scaleY(1.05) translateY(-1px);
   }
 }
 

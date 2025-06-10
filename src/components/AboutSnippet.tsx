@@ -11,19 +11,26 @@ const AboutSnippet = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden transition-all duration-300"
+      className="py-24 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden transition-all duration-300"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-20 dark:opacity-10">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-orange-300 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-amber-400 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-yellow-300 rounded-full blur-3xl animate-sand-drift"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-300 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-400 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-indigo-300 rounded-full blur-3xl animate-sand-drift"></div>
       </div>
 
-      {/* Desert Camel Animation */}
+      {/* Horizontal Desert Camel Animation */}
       <div className="absolute bottom-10 w-full pointer-events-none">
         <div className="animate-camel-walk">
-          <div className="text-6xl">🐪</div>
+          <div className="text-6xl animate-camel-legs">🐪</div>
+        </div>
+      </div>
+
+      {/* Additional Vertical Camel Animations */}
+      <div className="absolute right-20 top-0 h-full pointer-events-none">
+        <div className="animate-camel-vertical-down" style={{ animationDelay: '5s' }}>
+          <div className="text-5xl animate-camel-legs">🐪</div>
         </div>
       </div>
 
@@ -50,7 +57,7 @@ const AboutSnippet = () => {
             <Button 
               asChild 
               size="lg"
-              className="bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
               <Link to="/about">Learn More About Us</Link>
             </Button>
