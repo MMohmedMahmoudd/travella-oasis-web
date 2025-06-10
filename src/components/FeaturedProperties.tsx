@@ -1,7 +1,9 @@
-
+import { useRef } from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { MapPin, Bed, Bath, Square } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useScrollAnimation';
 
 const properties = [
   {
@@ -73,46 +75,79 @@ const properties = [
 ];
 
 const FeaturedProperties = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef);
+
   return (
-    <section className="py-16 bg-gray-50">
+    <section ref={sectionRef} className="py-24 bg-muted/50 transition-all duration-300">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Properties</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover our handpicked selection of premium properties across Egypt
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
+        }`}>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-gradient">
+            Featured Properties
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Discover our handpicked selection of premium properties across Egypt, 
+            each offering unique charm and exceptional value
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map((property) => (
-            <Card key={property.id} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {properties.map((property, index) => (
+            <Card 
+              key={property.id} 
+              className={`group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 card-3d bg-card/80 backdrop-blur-sm border-2 hover:border-primary/50 overflow-hidden ${
+                isVisible ? 'animate-scale-in' : 'opacity-0'
+              }`}
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
               <div className="relative overflow-hidden rounded-t-lg">
                 <img 
                   src={property.image} 
                   alt={property.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <Badge className="absolute top-4 left-4 bg-yellow-500 text-black hover:bg-yellow-600">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <Badge className="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black hover:from-yellow-500 hover:to-yellow-600 font-semibold shadow-lg">
                   {property.badge}
                 </Badge>
               </div>
               
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+              <CardContent className="p-6 space-y-4">
+                <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                   {property.title}
                 </h3>
-                <p className="text-gray-600 mb-3">{property.location}</p>
-                <p className="text-2xl font-bold text-primary mb-4">{property.price}</p>
                 
-                <div className="flex justify-between text-sm text-gray-500">
-                  <span>{property.beds} Beds</span>
-                  <span>{property.baths} Baths</span>
-                  <span>{property.area}</span>
+                <div className="flex items-center text-muted-foreground mb-3 group-hover:text-primary transition-colors">
+                  <MapPin className="w-4 h-4 mr-2 flex-shrink-0" />
+                  <span className="text-sm">{property.location}</span>
+                </div>
+                
+                <p className="text-2xl font-bold text-primary mb-4 group-hover:scale-105 transition-transform">
+                  {property.price}
+                </p>
+                
+                <div className="flex justify-between items-center text-sm text-muted-foreground border-t border-border pt-4">
+                  <div className="flex items-center space-x-1 hover:text-primary transition-colors">
+                    <Bed className="w-4 h-4" />
+                    <span>{property.beds}</span>
+                  </div>
+                  <div className="flex items-center space-x-1 hover:text-primary transition-colors">
+                    <Bath className="w-4 h-4" />
+                    <span>{property.baths}</span>
+                  </div>
+                  <div className="flex items-center space-x-1 hover:text-primary transition-colors">
+                    <Square className="w-4 h-4" />
+                    <span>{property.area}</span>
+                  </div>
                 </div>
               </CardContent>
               
               <CardFooter className="p-6 pt-0">
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400"
+                >
                   View Details
                 </Button>
               </CardFooter>
@@ -120,8 +155,13 @@ const FeaturedProperties = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <Button size="lg" className="px-8">
+        <div className={`text-center mt-16 transition-all duration-1000 ${
+          isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
+        }`} style={{ animationDelay: '800ms' }}>
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-primary to-purple-600 hover:from-purple-600 hover:to-primary text-white font-semibold px-12 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+          >
             View All Properties
           </Button>
         </div>
