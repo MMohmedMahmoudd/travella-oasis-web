@@ -19,13 +19,6 @@ const AboutSnippet = () => {
         <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-indigo-300 rounded-full blur-3xl animate-sand-drift"></div>
       </div>
 
-      {/* Horizontal Desert Camel Animation */}
-      <div className="absolute bottom-10 w-full pointer-events-none">
-        <div className="animate-camel-walk">
-          <div className="text-6xl animate-camel-legs">🐪</div>
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className={`transition-all duration-1000 ${

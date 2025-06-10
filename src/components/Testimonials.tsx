@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star } from 'lucide-react';
@@ -41,13 +40,6 @@ const Testimonials = () => {
       <div className="absolute inset-0 opacity-20 dark:opacity-10">
         <div className="absolute top-32 right-20 w-72 h-72 bg-purple-300 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
         <div className="absolute bottom-32 left-20 w-96 h-96 bg-blue-300 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-      </div>
-
-      {/* Horizontal Desert Camel Animation */}
-      <div className="absolute bottom-10 w-full pointer-events-none">
-        <div className="animate-camel-walk">
-          <div className="text-6xl animate-camel-legs">🐪</div>
-        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
