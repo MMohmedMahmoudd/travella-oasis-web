@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -24,13 +23,6 @@ const AboutSnippet = () => {
       <div className="absolute bottom-10 w-full pointer-events-none">
         <div className="animate-camel-walk">
           <div className="text-6xl animate-camel-legs">🐪</div>
-        </div>
-      </div>
-
-      {/* Additional Vertical Camel Animations */}
-      <div className="absolute right-20 top-0 h-full pointer-events-none">
-        <div className="animate-camel-vertical-down" style={{ animationDelay: '5s' }}>
-          <div className="text-5xl animate-camel-legs">🐪</div>
         </div>
       </div>
 

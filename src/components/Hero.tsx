@@ -20,16 +20,10 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      {/* Vertical Camel Animations */}
-      <div className="absolute left-5 top-0 h-full pointer-events-none">
-        <div className="animate-camel-vertical-down">
-          <div className="text-4xl animate-camel-legs">🐪</div>
-        </div>
-      </div>
-      
-      <div className="absolute right-5 top-0 h-full pointer-events-none">
-        <div className="animate-camel-vertical-up" style={{ animationDelay: '8s' }}>
-          <div className="text-4xl animate-camel-legs">🐪</div>
+      {/* Horizontal Desert Camel Animation */}
+      <div className="absolute bottom-10 w-full pointer-events-none">
+        <div className="animate-camel-walk">
+          <div className="text-6xl animate-camel-legs">🐪</div>
         </div>
       </div>
 

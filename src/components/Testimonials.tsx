@@ -43,10 +43,10 @@ const Testimonials = () => {
         <div className="absolute bottom-32 left-20 w-96 h-96 bg-blue-300 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      {/* Additional Vertical Camel Animation */}
-      <div className="absolute left-10 top-0 h-full pointer-events-none">
-        <div className="animate-camel-vertical-up" style={{ animationDelay: '12s' }}>
-          <div className="text-5xl animate-camel-legs">🐪</div>
+      {/* Horizontal Desert Camel Animation */}
+      <div className="absolute bottom-10 w-full pointer-events-none">
+        <div className="animate-camel-walk">
+          <div className="text-6xl animate-camel-legs">🐪</div>
         </div>
       </div>
 
