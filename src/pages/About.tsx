@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import Layout from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
@@ -203,13 +202,6 @@ const About = () => {
         ref={statsRef}
         className="py-24 gradient-bg text-white relative overflow-hidden"
       >
-        {/* Desert Camel Animation */}
-        <div className="absolute bottom-10 w-full pointer-events-none">
-          <div className="animate-camel-walk">
-            <div className="text-6xl">🐪</div>
-          </div>
-        </div>
-
         <div className={`container mx-auto px-4 transition-all duration-1000 ${
           statsVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
         }`}>
